@@ -1,5 +1,6 @@
 package com.example.dddstudy.domain.entity;
 
+import com.example.dddstudy.domain.converter.MoneyConverter;
 import com.example.dddstudy.domain.id.OrderNo;
 import com.example.dddstudy.domain.vo.Money;
 import com.example.dddstudy.domain.vo.OrderLine;
@@ -23,6 +24,7 @@ public class Order {
     @Embedded
     private ShippingInfo shippingInfo;
 
+    @Convert(converter = MoneyConverter.class)
     @Column(name = "total_amounts")
     private Money totalAmounts;
 

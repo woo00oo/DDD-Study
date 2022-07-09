@@ -5,7 +5,7 @@ import com.example.dddstudy.domain.vo.Money;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-@Converter(autoApply = true)
+@Converter(autoApply = false)
 public class MoneyConverter implements AttributeConverter<Money, Integer> {
 
     // 밸류 타입 -> DB 칼럼 변환
