@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 public class OrderCanceledHandler {
 
     @EventListener(OrderCanceledEvent.class)
-    public void handle(OrderCanceledEvent orderCanceledEvent) {
+    public void handle(OrderCanceledEvent orderCanceledEvent) throws InterruptedException {
         log.info("환불 처리 로직 실행 ={}", orderCanceledEvent);
+        Thread.sleep(5000L);
     }
 }

@@ -9,11 +9,13 @@ import com.example.dddstudy.domain.vo.Money;
 import com.example.dddstudy.domain.vo.OrderLine;
 import com.example.dddstudy.domain.vo.Orderer;
 import com.example.dddstudy.domain.vo.ShippingInfo;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Entity
 @Table(name = "purchase_order")
 public class Order {
@@ -47,6 +49,7 @@ public class Order {
     public void cancel(OrderCancelEventPub publisher) {
         this.state = OrderState.CANCELED;
         publisher.pub(new OrderCanceledEvent(this.number));
+        log.info("이벤트 발행 끝");
     }
 
     /**
