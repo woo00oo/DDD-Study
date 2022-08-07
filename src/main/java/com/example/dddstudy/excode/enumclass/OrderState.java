@@ -1,4 +1,4 @@
-package com.example.dddstudy.excode;
+package com.example.dddstudy.excode.enumclass;
 
 public enum OrderState {
     PAYMENT_WAITING,

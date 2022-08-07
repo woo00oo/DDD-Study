@@ -1,4 +1,9 @@
-package com.example.dddstudy.excode;
+package com.example.dddstudy.excode.entity;
+
+import com.example.dddstudy.excode.vo.Money;
+import com.example.dddstudy.excode.vo.OrderLine;
+import com.example.dddstudy.excode.enumclass.OrderState;
+import com.example.dddstudy.excode.vo.ShippingInfo;
 
 import java.util.List;
 
@@ -51,7 +56,7 @@ public class Order {
      */
     private void calculateTotalAmounts() {
         int sum = this.orderLines.stream()
-                .mapToInt(OrderLine::getAmounts)
+                .mapToInt(x -> x.getAmounts().getValue())
                 .sum();
         this.totalAmounts = new Money(sum);
     }
