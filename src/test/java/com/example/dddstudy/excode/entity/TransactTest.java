@@ -75,9 +75,14 @@ class TransactTest {
 
         //given
         /**
-         * 아래 코드는 체크익셉션 발생.
+         * 신용 카드 관련 세팅 정보를 간편 결제 관련 세팅 정보에 세팅할 경우 -> 체크익셉션 발생.
          */
         //merchantCommonSettings.setPayEasySettings(creditCardSettings);
+        merchantCommonSettings.setCreditCardSettings(creditCardSettings);
+        Transact transact = new Transact(new Money(1000), merchantCommonSettings);
+
+        //then
+        assertThat(transact.getSettings().getCreditCardSettings()).isInstanceOf(CreditCardSettings.class);
 
     }
 
